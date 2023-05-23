@@ -5,7 +5,7 @@
     $(arg vc_tissue)_$(arg tissue_shape)_landamrk_$(arg tissue_view_index) 
     
   -->
-  <arg name = "tissue_type_index"  default = "vc_tissue" doc = "vaginal cuff tissue (vc_tissue) or small intestine tissue (si_tissue)"/>
+  <arg name = "tissue_type_index"  default = "si_tissue" doc = "vaginal cuff tissue (vc_tissue) or small intestine tissue (si_tissue)"/>
   <arg name = "tissue_shape_index" default = "1"         doc = "This is the shape of the soft tissue"/>
   <arg name = "tissue_view_index"  default = "1"         doc = "same tissue_shape with different camera viewing angle"/>
 
@@ -24,13 +24,15 @@
     <param name="label_names_filename"                type="string" 
            value="$(find rviz_cloud_annotation)/data/$(arg tissue_type_index)/shape_$(arg tissue_shape_index)/$(arg tissue_type_index)_$(arg tissue_view_index).txt" />
 
-    <param name="label_size"                          type="double" value="0.002" />
+    <param name="label_size"                          type="double" value="0.001" />
+    <param name="point_size"                          type="double" value="0.0005" />
     <param name="neigh_search_type"                   type="int"    value="2" />
-    <param name="neigh_search_params"                 type="string" value="10" />
+    <param name="neigh_search_params"                 type="string" value="1" />
 
     <param name="normal_importance"                   type="double" value="0.5" />
     <param name="color_importance"                    type="double" value="1.0" />
     <param name="position_importance"                 type="double" value="0.1" />
+    <param name="weight_steps"                        type="int"    value="10"/>
 
     <param name="show_zero_weight_control_points"     type="bool" value="false" />
   </node>

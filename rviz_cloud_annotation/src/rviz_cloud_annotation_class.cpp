@@ -588,7 +588,7 @@ void RVizCloudAnnotation::Save(const bool is_autosave)
     PointXYZRGBLCloud cloud_out;
     pcl::copyPointCloud(*m_cloud,cloud_out);
     m_annotation->LabelCloudWithColor(cloud_out);
-    if (pcl::io::savePCDFileBinary(cloud_filename,cloud_out))
+    if (pcl::io::savePCDFile(cloud_filename,cloud_out))
       ROS_ERROR("rviz_cloud_annotation: could not save labeled cloud.");
   }
   ROS_INFO("rviz_cloud_annotation: done.");
